@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: funbox
+spec:
+  selector:
+    matchLabels:
+      app: funbox
+  template:
+    metadata:
+      labels:
+        app: funbox
+    spec:
+      containers:
+        - name: funbox
+          image: nginx:1.16.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
